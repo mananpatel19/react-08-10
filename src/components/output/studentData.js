@@ -1,5 +1,6 @@
 import React from "react";
 import Output from "./output";
+
 const Studentdata = () => {
   const data = [
     {
@@ -22,15 +23,11 @@ const Studentdata = () => {
   return (
     <>
       {data.map((item) => {
-        return (
-          <Output
-            id={item.id}
-            Name={item.Name}
-          />
-        );
+        return <Output id={item.id} Name={item.Name}/>;
       })}
     </>
   );
 };
 
 export default Studentdata;
+
