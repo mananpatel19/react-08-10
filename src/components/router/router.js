@@ -1,8 +1,9 @@
 import React from "react";
 import {  Route, Routes } from "react-router-dom";
 import Form from "../form/form";
-import Output from "../output/output";
+// import Output from "../output/output";
 import Welcome from "../welcome/welcome";
+import Studentdata from "../output/studentData";
 
 
 const PageRouter = () => {
@@ -12,7 +13,7 @@ const PageRouter = () => {
                 <Route path="/"  />
                 <Route path="/welcome" element={<Welcome />} />
                 <Route path="/form" element={<Form />} />
-                <Route path="/output" element={<Output />} />
+                <Route path="/output" element={<Studentdata />} />
             </Routes>
         </>
     );
