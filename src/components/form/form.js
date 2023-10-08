@@ -1,37 +1,31 @@
 import React, { useState } from "react";
 
-// const Form = () =>{
-
-//     return(
-//        <>
-// <h1>Student Form submit</h1>
-//        </>
-//     )
-// };
-
 const Form = () => {
   const [fullname, setFullname] = useState("");
-  const [course, setCourse] = useState("MCA");
+  const [course, setCourse] = useState("");
+
   const handlerCourse = (event) => {
     setCourse(event.target.value);
   };
+
+  const Onsubmit = () => {
+    if (fullname === "") {
+      alert("please enter Name");
+    }
+    else{
+    alert("Hello " + fullname + "  course: " + course);
+    }
+  };
+
   return (
     <>
       <h2>Form</h2>
-      <form
-        onSubmit={(event) => {
-          if (fullname !== "")
-            alert(`Welcome, ${fullname}. You have choosen ${course}!`);
-          else alert("Please enter your name!");
-          event.preventDefault();
-        }}
-      >
+      <form onSubmit={Onsubmit}>
         <label htmlFor="fullname">
           Name
           <input
             type="text"
             name="fullname"
-            className="form-control"
             id="fullname"
             value={fullname}
             onChange={(event) => {
@@ -39,10 +33,11 @@ const Form = () => {
             }}
           />
         </label>
+        <br />
+        <br />
         <label>
           Course
           <select
-            className="form-select"
             id="course"
             name="course"
             value={course}
@@ -54,17 +49,14 @@ const Form = () => {
             <option>MScIT</option>
           </select>
         </label>
-
-        {fullname ? (
-          <label>
-            <strong>{fullname}</strong> has selected <strong>{course}</strong>
-          </label>
-        ) : (
-          ""
-        )}
+        <br />
+        <br />
         <button type="submit" className="btn">
           Submit
         </button>
+
+        <label>{fullname ? fullname : ""}</label>
+        <label>{course ? course : ""}</label>
       </form>
     </>
   );
